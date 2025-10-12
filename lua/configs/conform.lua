@@ -1,8 +1,17 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    -- css = { "prettier" },
-    -- html = { "prettier" },
+    rust = { "rustfmt_nightly" },
+    css = { "prettier" },
+    html = { "prettier" },
+  },
+
+  formatters = {
+    rustfmt_nightly = {
+      command = "rustfmt",
+      args = { "+nightly", "--emit=stdout" },
+      stdin = true,
+    },
   },
 
   format_on_save = {
