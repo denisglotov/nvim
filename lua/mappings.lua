@@ -8,3 +8,13 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+-- Toggle keymap
+do
+  local ih = vim.lsp.inlay_hint
+  vim.keymap.set("n", "<leader>h", function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local enabled = ih.is_enabled { bufnr = bufnr }
+    ih.enable(not enabled, { bufnr = bufnr })
+  end, { desc = "Toggle inlay hints" })
+end

@@ -12,11 +12,11 @@ local servers = {
   "html",
   "lua_ls",
   "pylsp",
-  "rust_analyzer",
+  -- "rust_analyzer", -- rustaceanvim handles it
   "solidity_ls",
   "textlsp",
   "ts_ls",
 }
 vim.lsp.enable(servers)
 
--- read :h vim.lsp.config for changing options of lsp servers 
+-- read :h vim.lsp.config for changing options of lsp servers
