@@ -33,25 +33,32 @@ return {
     end,
   },
 
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   -- cmd = "Copilot",
-  --   event = "InsertEnter",
-  --   config = function()
-  --     require("copilot").setup {}
-  --   end,
-  -- },
-
   {
-    "github/copilot.vim",
+    "zbirenbaum/copilot.lua",
+    requires = {
+      "copilotlsp-nvim/copilot-lsp", -- (optional) for NES functionality
+    },
+    cmd = "Copilot",
     event = "InsertEnter",
     config = function()
-      vim.g.copilot_no_tab_map = true
-      vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { expr = true, silent = true })
-      vim.api.nvim_set_keymap("i", "<C-K>", "copilot#Dismiss()", { expr = true, silent = true })
+      require("copilot").setup {
+        suggestion = {
+          auto_trigger = false,
+        },
+      }
     end,
   },
 
+  -- {
+  --   "github/copilot.vim",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     vim.g.copilot_no_tab_map = true
+  --     vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { expr = true, silent = true })
+  --     vim.api.nvim_set_keymap("i", "<C-K>", "copilot#Dismiss()", { expr = true, silent = true })
+  --   end,
+  -- },
+  --
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     cmd = { "CopilotChat" },
