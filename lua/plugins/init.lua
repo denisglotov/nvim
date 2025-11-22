@@ -20,6 +20,22 @@ return {
     "mrcjkb/rustaceanvim",
     version = "^6", -- Recommended
     lazy = false, -- This plugin is already lazy
+    config = function()
+      vim.g.rustaceanvim = {
+        server = {
+          settings = {
+            ["rust-analyzer"] = {
+              cargo = {
+                allFeatures = true,
+                -- alternatively, you could use:
+                -- features = { "feature1", "feature2" },
+                -- noDefaultFeatures = false,
+              },
+            },
+          },
+        },
+      }
+    end,
   },
 
   {
@@ -85,13 +101,27 @@ return {
     event = "InsertEnter",
   },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "markdown",
+        "markdown_inline",
+      },
+    },
+  },
+
+  {
+    "olimorris/codecompanion.nvim",
+    cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions" },
+    opts = {},
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
 }
