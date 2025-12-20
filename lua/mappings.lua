@@ -18,3 +18,17 @@ do
     ih.enable(not enabled, { bufnr = bufnr })
   end, { desc = "Toggle inlay hints" })
 end
+
+-- relative path of current buffer
+map("n", "<leader>cr", function()
+  local path = vim.fn.expand "%"
+  vim.fn.setreg("+", path)
+  print("Copied: " .. path)
+end, { desc = "Copy relative file path" })
+
+-- absolute path of current buffer
+map("n", "<leader>cp", function()
+  local path = vim.fn.expand "%:p"
+  vim.fn.setreg("+", path)
+  print("Copied: " .. path)
+end, { desc = "Copy absolute file path" })
