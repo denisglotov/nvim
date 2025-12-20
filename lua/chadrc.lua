@@ -18,6 +18,15 @@ M.base46 = {
 M.ui = {
   statusline = {
     theme = "vscode_colored",
+    modules = {
+      file = function()
+        local utils = require "nvchad.stl.utils"
+        local icon = utils.file()[1]
+        local path = vim.api.nvim_buf_get_name(utils.stbufnr())
+        local name = (path == "" and "Empty") or vim.fn.fnamemodify(path, ":~:.")
+        return "%#StText# " .. icon .. " " .. name .. " "
+      end,
+    },
   },
 }
 
