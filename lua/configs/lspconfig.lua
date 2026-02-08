@@ -8,14 +8,18 @@ local servers = {
   "clangd",
   "cssls",
   "gopls",
-  "jsonls",
   "html",
+  "jsonls",
+  "just-lsp",
+  "kotlin_language_server",
+  "ktfmt",
+  "ktlint",
   "lua_ls",
   "pylsp",
-  -- "rust_analyzer", -- rustaceanvim handles it
   "solidity_ls",
   "textlsp",
   "ts_ls",
+  -- "rust_analyzer", -- rustaceanvim handles it
 }
 vim.lsp.enable(servers)
 
