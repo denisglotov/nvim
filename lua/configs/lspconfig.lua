@@ -21,6 +21,15 @@ local servers = {
   "ts_ls",
   -- "rust_analyzer", -- rustaceanvim handles it
 }
+
+vim.lsp.config("gopls", {
+  settings = {
+    gopls = {
+      buildFlags = { "-tags=integration_tests" },
+    },
+  },
+})
+
 vim.lsp.enable(servers)
 
 -- read :h vim.lsp.config for changing options of lsp servers
