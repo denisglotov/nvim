@@ -13,6 +13,17 @@ return {
     end,
   },
 
+  {
+    "j-hui/fidget.nvim",
+    event = "LspAttach",
+    opts = {
+      -- Options for the fidget UI
+      progress = {
+        suppress_on_insert = true, -- Suppress new messages while in insert mode
+      },
+    },
+  },
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
@@ -103,6 +114,7 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     opts = {
       ensure_installed = {
         "vim",
@@ -122,6 +134,32 @@ return {
     opts = {},
     dependencies = {
       "nvim-lua/plenary.nvim",
+    },
+  },
+
+  {
+    "saecki/crates.nvim",
+    event = { "BufRead Cargo.toml" },
+    config = function()
+      require("crates").setup()
+    end,
+  },
+
+  {
+    "folke/trouble.nvim",
+    cmd = { "Trouble" },
+    opts = {},
+    keys = {
+      {
+        "<leader>xx",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>xX",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
     },
   },
 }

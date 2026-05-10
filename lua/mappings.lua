@@ -32,3 +32,45 @@ map("n", "<leader>cp", function()
   vim.fn.setreg("+", path)
   print("Copied: " .. path)
 end, { desc = "Copy absolute file path" })
+
+-- Git hunk navigation
+map("n", "]c", function()
+  if vim.wo.diff then
+    vim.cmd.normal { "]c", bang = true }
+  else
+    require("gitsigns").nav_hunk "next"
+  end
+end, { desc = "Jump to next git hunk" })
+
+map("n", "[c", function()
+  if vim.wo.diff then
+    vim.cmd.normal { "[c", bang = true }
+  else
+    require("gitsigns").nav_hunk "prev"
+  end
+end, { desc = "Jump to prev git hunk" })
+
+-- Git hunk actions
+map("n", "<leader>rh", function()
+  require("gitsigns").reset_hunk()
+end, { desc = "Reset git hunk" })
+
+map("n", "<leader>ph", function()
+  require("gitsigns").preview_hunk()
+end, { desc = "Preview git hunk" })
+
+map("n", "<leader>sh", function()
+  require("gitsigns").stage_hunk()
+end, { desc = "Stage git hunk" })
+
+map("n", "<leader>us", function()
+  require("gitsigns").undo_stage_hunk()
+end, { desc = "Undo stage git hunk" })
+
+map("n", "<leader>gb", function()
+  package.loaded.gitsigns.blame_line()
+end, { desc = "Blame line" })
+
+map("n", "<leader>td", function()
+  require("gitsigns").toggle_deleted()
+end, { desc = "Toggle deleted" })
