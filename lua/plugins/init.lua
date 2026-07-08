@@ -115,6 +115,9 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",
+    init = function()
+      vim.treesitter.language.register("json5", "jsonc")
+    end,
     opts = {
       ensure_installed = {
         "vim",
@@ -122,6 +125,11 @@ return {
         "vimdoc",
         "html",
         "css",
+        "javascript",
+        "typescript",
+        "tsx",
+        "json",
+        "json5",
         "markdown",
         "markdown_inline",
       },
