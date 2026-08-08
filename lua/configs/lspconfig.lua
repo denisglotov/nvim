@@ -13,8 +13,6 @@ local servers = {
   "jsonls",
   "just-lsp",
   "kotlin_language_server",
-  "ktfmt",
-  "ktlint",
   "lua_ls",
   "pylsp",
   "solidity_ls",
