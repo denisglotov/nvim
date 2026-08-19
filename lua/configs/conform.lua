@@ -3,7 +3,7 @@ local util = require "conform.util"
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    rust = { "rustfmt_nightly" },
+    rust = { "rustfmt" },
     css = { "prettier" },
     html = { "prettier" },
     javascript = { "prettier" },
@@ -17,11 +17,6 @@ local options = {
   },
 
   formatters = {
-    rustfmt_nightly = {
-      command = "rustfmt",
-      args = { "+nightly", "--emit=stdout" },
-      stdin = true,
-    },
     ktlint = {
       command = "ktlint",
       args = { "--format", "--stdin", "--stdin-path", "$FILENAME", "--log-level=none" },
