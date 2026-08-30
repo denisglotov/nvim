@@ -132,6 +132,7 @@ return {
         "json5",
         "markdown",
         "markdown_inline",
+        "glsl",
       },
     },
   },

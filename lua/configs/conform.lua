@@ -14,6 +14,7 @@ local options = {
     jsonc = { "prettier" },
     kotlin = { "ktlint" },
     kts = { "ktlint" },
+    glsl = { "clang-format" },
   },
 
   formatters = {

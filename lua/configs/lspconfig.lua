@@ -8,6 +8,7 @@ local servers = {
   "clangd",
   "cssls",
   "eslint",
+  "glsl_analyzer",
   "gopls",
   "html",
   "jsonls",
