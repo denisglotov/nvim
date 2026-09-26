@@ -13,7 +13,7 @@ local servers = {
   "html",
   "jsonls",
   "just-lsp",
-  "kotlin_language_server",
+  -- "kotlin_lsp", -- kotlin.nvim handles it
   "lua_ls",
   "pylsp",
   "solidity_ls",
@@ -28,6 +28,11 @@ vim.lsp.config("gopls", {
       buildFlags = { "-tags=integration_tests" },
     },
   },
+})
+
+vim.lsp.config("solidity_ls", {
+  cmd = { "forge", "lsp" },
+  root_markers = { "foundry.toml", ".git" },
 })
 
 vim.lsp.enable(servers)

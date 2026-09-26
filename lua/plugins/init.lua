@@ -50,6 +50,17 @@ return {
   },
 
   {
+    "AlexandrosAlexiou/kotlin.nvim",
+    ft = { "kotlin" },
+    dependencies = {
+      "mason.nvim",
+      "neovim/nvim-lspconfig",
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {},
+  },
+
+  {
     "supermaven-inc/supermaven-nvim",
     config = function()
       require("supermaven-nvim").setup {}
@@ -133,6 +144,7 @@ return {
         "markdown",
         "markdown_inline",
         "glsl",
+        "kotlin",
       },
     },
   },
