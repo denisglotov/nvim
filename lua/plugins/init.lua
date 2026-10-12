@@ -14,6 +14,16 @@ return {
   },
 
   {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "json-lsp",
+        "prettier",
+      },
+    },
+  },
+
+  {
     "j-hui/fidget.nvim",
     event = "LspAttach",
     opts = {
